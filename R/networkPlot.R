@@ -175,7 +175,7 @@ enrichmentNetwork.plot <- function(dt,
 
   if (colorType == 'nes') {
     range <- max(abs(coordinates[ , color ]))
-    colors <- scale_color_distiller(limits = c(-range, range), palette = 'Spectral')
+    colors <- scale_color_distiller(limits = c(-range, range), palette = 'RdBu')
     colorTitle <- 'NES'
   }
 
