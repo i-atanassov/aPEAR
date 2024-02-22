@@ -174,9 +174,10 @@ enrichmentNetwork.plot <- function(dt,
   lines <- lines[ from %in% coordinates[ , ID ] & to %in% coordinates[ , ID ] ]
 
   if (colorType == 'nes') {
-    range <- max(abs(coordinates[ , color ]))
-    colors <- scale_color_distiller(limits = c(-range, range), palette = 'RdBu')
+    
+    colors <- scale_colour_gradientn(colours=c('#2166ac', '#f7f7f7','#b2182b'),limits=c(-3,3),oob = scales::squish)
     colorTitle <- 'NES'
+    
   }
 
   if (colorType == 'pval') {
