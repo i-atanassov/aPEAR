@@ -18,7 +18,7 @@
 #' @export
 #' 
 findClusters <- function(sim,
-                         minClusterSize = 2,
+                         minClusterSize = 1,
                          method = c('markov', 'hier', 'spectral'),
                          nameMethod = c('pagerank', 'hits', 'none'),
                          verbose = FALSE
@@ -27,8 +27,8 @@ findClusters <- function(sim,
   nameMethod <- match.arg(nameMethod)
 
   if (minClusterSize < 1) {
-    warning(paste0('Invalid minClusterSize = ', minClusterSize, '. Will set minClusterSize = 2.'))
-    minClusterSize <- 2
+    warning(paste0('Invalid minClusterSize = ', minClusterSize, '. Will set minClusterSize = 1.'))
+    minClusterSize <- 1
   }
 
   clusters <- switch(method,
@@ -56,7 +56,7 @@ findClusters <- function(sim,
 #' @importFrom dplyr %>%
 #' 
 findClustersMarkov <- function(sim,
-                               minClusterSize = 2,
+                               minClusterSize = 1,
                                verbose = FALSE
 ) {
   if (verbose) message('Using Markov Cluster Algorithm to detect pathway clusters...')
